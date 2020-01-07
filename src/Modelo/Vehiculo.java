@@ -1,12 +1,16 @@
 package Modelo;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public abstract class Vehiculo implements ImpresionDeDatos{
 
     protected String marcaVehiculo;
     protected String modeloVehiculo;
-    protected String precioVehiculo;
+    protected double precioVehiculo;
 
-    public Vehiculo(String marca, String modelo, String precio){
+    public Vehiculo(String marca, String modelo,double precio){
         this.marcaVehiculo = marca;
         this.modeloVehiculo = modelo;
         this.precioVehiculo = precio;
@@ -20,7 +24,7 @@ public abstract class Vehiculo implements ImpresionDeDatos{
         this.modeloVehiculo = modelo;
     }
 
-    public void setPrecioVehiculo(String precio){
+    public void setPrecioVehiculo(float precio){
         this.precioVehiculo = precio;
     }
 
@@ -32,11 +36,19 @@ public abstract class Vehiculo implements ImpresionDeDatos{
         return this.modeloVehiculo;
     }
 
-    public String getPrecioVehiculo() {
+    public double getPrecioVehiculo() {
         return precioVehiculo;
     }
 
     public abstract String imprimirDatos();
+
+    protected String formatoDeNumero(double numeroACambiarformato){
+        Locale locale = new Locale ("es", "ES");
+        NumberFormat objNF2 = NumberFormat.getInstance (locale);
+        String precio = objNF2.format(this.precioVehiculo);
+        DecimalFormat formaeador = new DecimalFormat("###,###.00");
+        return formaeador.format(numeroACambiarformato);
+    }
 
     @Override
     public String imprimirMarcaModelo(){
@@ -45,7 +57,7 @@ public abstract class Vehiculo implements ImpresionDeDatos{
 
     @Override
     public String imprimirMarcaModeloYPrecio(){
-        return getMarcaVehiculo()+" "+getModeloVehiculo()+" "+getPrecioVehiculo();
+      return getMarcaVehiculo()+" "+getModeloVehiculo()+" "+formatoDeNumero(getPrecioVehiculo());
     }
 
 }

@@ -1,10 +1,15 @@
 package Modelo;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Moto extends Vehiculo{
 
     private String cilindradaDeLaMoto;
 
-    public Moto(String marca, String modelo,String cilindrada, String precio){
+    public Moto(String marca, String modelo,String cilindrada,double precio){
         super(marca, modelo, precio);
         this.cilindradaDeLaMoto = cilindrada;
     }
@@ -18,12 +23,13 @@ public class Moto extends Vehiculo{
     }
 
     private String mostrarDatosDeLaMoto(){
-        return getMarcaVehiculo()+"//"+getModeloVehiculo()+"//"+getCilindradaDeLaMoto()+"//"+getPrecioVehiculo();
+       return "Marca: "+getMarcaVehiculo()+" // Modelo: "+getModeloVehiculo()+" // Puertas: "
+               +getCilindradaDeLaMoto()+" // Precio: $"+formatoDeNumero(getPrecioVehiculo());
     }
 
     @Override
     public String imprimirDatos(){
-        return mostrarDatosDeLaMoto();
+      return mostrarDatosDeLaMoto();
     }
 
 }
