@@ -1,11 +1,5 @@
 package Modelo;
 
-import sun.font.CreatedFontTracker;
-
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
-
 public class Auto extends Vehiculo{
 
     private String cantidadDePuertas;

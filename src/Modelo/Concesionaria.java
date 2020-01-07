@@ -1,15 +1,15 @@
 package Modelo;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Concesionaria implements BusquedaYOrdenamiento{
 
     private ArrayList<Vehiculo> listaDeVehiculos;
-    //private
 
     public Concesionaria(){
-        this.listaDeVehiculos = new ArrayList<Vehiculo>();
+        this.listaDeVehiculos = new ArrayList<>();
     }
 
     private void imprimirListaDeVehiculos(){
@@ -20,31 +20,15 @@ public class Concesionaria implements BusquedaYOrdenamiento{
 
     @Override
     public ArrayList ordenamientoDeMayorAMenor(ArrayList lista){
-        //lista.sort(new Ordenamiento());
+        lista.sort(Comparator.comparing(Vehiculo::getPrecioVehiculo));
+        Collections.reverse(lista);
         return lista;
     }
 
     @Override
     public ArrayList ordenamientoDeMenorAMayor(ArrayList lista){
-       // Collections.reverseOrder(new Ordenamiento());
-       // Hashtable<String, Vehiculo> ordenado
-        return ordenarLista(lista);
-    }
-
-    private void compararEIntercambiar(Vehiculo vehiculo1,Vehiculo vehiculo2){
-        Vehiculo aux = null;
-        /*if(vehiculo1.getPrecioVehiculo().equals(vehiculo2.getPrecioVehiculo())){
-            aux = vehiculo1;
-            vehiculo1 = vehiculo2;
-            vehiculo2 = aux;
-        }*/
-    }
-
-    private ArrayList ordenarLista(ArrayList<Vehiculo> lista){
-        for(int i = 0;i<lista.size()-1;i++){
-            compararEIntercambiar(lista.get(i),lista.get(i+1));
-        }
-        return lista;
+       lista.sort(Comparator.comparing(Vehiculo::getPrecioVehiculo));
+       return lista;
     }
 
     @Override
@@ -92,7 +76,7 @@ public class Concesionaria implements BusquedaYOrdenamiento{
         this.imprimirListaDeMayorAMenorPrecio();
     }
 
-
+    //Este metodo fue creado para la automatizacion de ingreso de los datos
     public void cargarDatos(){
         Auto auto = new Auto("Peugeot","206","4",200000);
         listaDeVehiculos.add(auto);
