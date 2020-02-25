@@ -1,16 +1,30 @@
 package Modelo;
 
-public class Auto extends Vehiculo {
+public class Auto extends Vehiculo{
 
-    private int cantidadDePuertas;
+    private String cantidadDePuertas;
 
-    public Auto(){
-        super();
-        this.cantidadDePuertas = 0;
+    public Auto(String marca, String modelo,String puertas,float precio){
+        super(marca,modelo,precio);
+        this.cantidadDePuertas = puertas;
     }
 
-    public void setCantidadDePuertas(int cantidad){
+    public void setCantidadDePuertas(String cantidad){
         this.cantidadDePuertas = cantidad;
+    }
+
+    private String getCantidadDePuertas() {
+        return cantidadDePuertas;
+    }
+
+    private String mostrarDatosDelAuto(){
+        return "Marca: "+getMarcaVehiculo()+" // Modelo: "+getModeloVehiculo()+
+                " // Puertas: "+getCantidadDePuertas()+" // Precio: $"+formatoDeNumero(getPrecioVehiculo());
+    }
+
+    @Override
+    public String imprimirDatos(){
+        return  mostrarDatosDelAuto();
     }
 
 }

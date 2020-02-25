@@ -1,16 +1,20 @@
 package Modelo;
 
-public abstract class Vehiculo {
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
-    private String marcaVehiculo;
-    private String modeloVehiculo;
-    private long precioVehiculo;
+public abstract class Vehiculo implements ImpresionDeDatos{
 
-   /* public Vehiculo(){
-        this.precioVehiculo = 0;
-        this.marcaVehiculo = " ";
-        this.modeloVehiculo = " ";
-    }*/
+    protected String marcaVehiculo;
+    protected String modeloVehiculo;
+    protected double precioVehiculo;
+
+    public Vehiculo(String marca, String modelo,double precio){
+        this.marcaVehiculo = marca;
+        this.modeloVehiculo = modelo;
+        this.precioVehiculo = precio;
+    }
 
     public void setMarcaVehiculo(String marca){
         this.marcaVehiculo = marca;
@@ -20,8 +24,40 @@ public abstract class Vehiculo {
         this.modeloVehiculo = modelo;
     }
 
-    public void setPrecioVehiculo(long precio){
+    public void setPrecioVehiculo(float precio){
         this.precioVehiculo = precio;
+    }
+
+    public String getMarcaVehiculo(){
+        return this.marcaVehiculo;
+    }
+
+    public String getModeloVehiculo(){
+        return this.modeloVehiculo;
+    }
+
+    public double getPrecioVehiculo() {
+        return precioVehiculo;
+    }
+
+    public abstract String imprimirDatos();
+
+    protected String formatoDeNumero(double numeroACambiarformato){
+        Locale locale = new Locale ("es", "ES");
+        NumberFormat objNF2 = NumberFormat.getInstance (locale);
+        String precio = objNF2.format(this.precioVehiculo);
+        DecimalFormat formaeador = new DecimalFormat("###,###.00");
+        return formaeador.format(numeroACambiarformato);
+    }
+
+    @Override
+    public String imprimirMarcaModelo(){
+        return getMarcaVehiculo()+" "+getModeloVehiculo();
+    }
+
+    @Override
+    public String imprimirMarcaModeloYPrecio(){
+      return getMarcaVehiculo()+" "+getModeloVehiculo()+" "+formatoDeNumero(getPrecioVehiculo());
     }
 
 }
