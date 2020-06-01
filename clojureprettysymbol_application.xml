@@ -1,5 +1,26 @@
 <application>
   <component name="CPSSettings">
+    <option name="turnOnFn" value="false" />
+    <option name="turnOnPartial" value="false" />
+    <option name="turnOnDef" value="false" />
+    <option name="turnOnDefn" value="false" />
+    <option name="turnOnLet" value="false" />
+    <option name="turnOnLetfn" value="false" />
+    <option name="turnOnDoseq" value="false" />
+    <option name="turnOnComp" value="false" />
+    <option name="turnOnThreadFirst" value="false" />
+    <option name="turnOnNotEqual" value="false" />
+    <option name="turnOnGT" value="false" />
+    <option name="turnOnLT" value="false" />
+    <option name="turnOnAnd" value="false" />
+    <option name="turnOnOr" value="false" />
+    <option name="turnOnNot" value="false" />
+    <option name="turnOnLambda" value="false" />
+    <option name="turnOnSet" value="false" />
+    <option name="turnOnEmptySet" value="false" />
+    <option name="turnOnSetUnion" value="false" />
+    <option name="turnOnSetDifference" value="false" />
+    <option name="turnOnSetIntersection" value="false" />
     <option name="showUpInStringLiteral" value="true" />
     <option name="showUpInComment" value="true" />
   </component>
