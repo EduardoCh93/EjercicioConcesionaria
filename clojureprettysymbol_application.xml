@@ -1,0 +1,6 @@
+<application>
+  <component name="CPSSettings">
+    <option name="showUpInStringLiteral" value="true" />
+    <option name="showUpInComment" value="true" />
+  </component>
+</application>
